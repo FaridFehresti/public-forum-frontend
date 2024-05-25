@@ -12,7 +12,7 @@ export const routes: Routes = [
   // Lazy-loaded module route
   {
     path: "auth",
-    loadChildren: () => import("./auth/auth.module").then(m => m.AuthModule),
+    loadChildren: () => import("./modules/auth/auth.module").then(m => m.AuthModule),
   },
   
   // Wildcard route for a 404 page or similar
