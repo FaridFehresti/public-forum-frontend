@@ -1,6 +1,6 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 
-import {  FormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import {  FormBuilder, Validators } from '@angular/forms';
 import { AuthOperationService } from '../auth-operation.service';
 import { Subscription } from 'rxjs';
 
@@ -11,10 +11,15 @@ import { Subscription } from 'rxjs';
   styleUrl: './login-form.component.scss',
 })
 export class LoginFormComponent  implements OnInit,OnDestroy{
-  loginSub:Subscription | null = null
+  loginSub:Subscription | null = null;
+  hide:boolean =true
   loginForm = this.fb.group({
     email:['', Validators.required],
-    password:['', Validators.required]
+    password:['', Validators.required],
+    user_name:['', Validators.required],
+    first_name:['', Validators.required],
+    last_name:['', Validators.required],
+    birthdate:[''],
   });
   constructor(private authOp:AuthOperationService, private fb:FormBuilder) {
 
@@ -29,14 +34,24 @@ export class LoginFormComponent  implements OnInit,OnDestroy{
     if (this.loginForm.valid) {
       let data = {
         email: this.loginForm.value.email!,
-        password: this.loginForm.value.password!
+        password: this.loginForm.value.password!,
+
       }
       this.loginSub = this.authOp.loginUser(data).subscribe(res => {
         console.log(res)
       })
     }
   }
+  updateErrorMessage(controlName:string):void{
+    if(this.loginForm.get(controlName)?.hasError('email')){
+      this.loginForm.get(controlName)?.setErrors({'email':true})
+    }
+  }
+  onShowPasswordClick(event: MouseEvent) {
+    this.hide = !this.hide;
+    event.stopPropagation();
+  }
   ngOnDestroy(): void {
-    
+    this.loginSub?.unsubscribe()
   }
 }

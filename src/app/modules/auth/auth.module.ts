@@ -10,6 +10,11 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { AuthComponent } from './auth.component'; 
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { RessetPasswordFormComponent } from './resset-password-form/resset-password-form.component';
+import {MatGridListModule}from '@angular/material/grid-list'
+import {MatDatepickerModule}from '@angular/material/datepicker'
+import {provideNativeDateAdapter} from '@angular/material/core';
+import {MatIconModule} from '@angular/material/icon';
+
 
 const MAT = [
   MatInputModule,
@@ -17,7 +22,10 @@ const MAT = [
   MatSelectModule,
   MatRadioModule,
   MatCardModule,
-  ReactiveFormsModule
+  ReactiveFormsModule,
+  MatGridListModule,
+  MatDatepickerModule,
+  MatIconModule,
 ];
 
 const PAGES = [
@@ -31,6 +39,9 @@ const PAGES = [
   imports: [
     ...MAT,
     AuthRoutingModule,
+  ],
+  providers:[
+    provideNativeDateAdapter()
   ]
 })
 export class AuthModule { }
