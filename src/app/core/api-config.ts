@@ -11,4 +11,7 @@ export class APIConfig {
         forgotPassword: this.api_core + '/auth/forgot-password',
         validateToken: this.api_core + '/auth/validate-token',
     }
+    userUrls = {
+        getUser: this.api_core + '/user',
+    }
 }

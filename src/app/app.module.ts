@@ -4,9 +4,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routes';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {  HttpClientModule } from '@angular/common/http';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../../enviroment/enviroment';
+import {  HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './modules/auth/interceptors/auth-interceptor';
 
 
 const COMPONENTS = [
@@ -22,6 +21,13 @@ const COMPONENTS = [
     BrowserAnimationsModule,
     HttpClientModule,
 
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
   ],
 
   bootstrap: [AppComponent] ,

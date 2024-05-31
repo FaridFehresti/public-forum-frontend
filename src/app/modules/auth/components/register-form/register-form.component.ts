@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { AuthOperationService } from '../auth-operation.service';
+import { AuthOperationService } from '../../services/auth-operation.service';
 
 @Component({
   selector: 'app-register-form',
@@ -11,9 +11,13 @@ import { AuthOperationService } from '../auth-operation.service';
 export class RegisterFormComponent {
   registerSub:Subscription | null = null;
   hide:boolean =true
+  validating:boolean=false;
+  isPasswordValid:boolean =false;
+  passwordPattern =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/;
+
   registerForm = this.fb.group({
     email:['', Validators.required],
-    password:['', Validators.required],
+    password:['', [Validators.required,Validators.pattern(this.passwordPattern)]],
     user_name:['', Validators.required],
     first_name:['', Validators.required],
     last_name:['', Validators.required],
@@ -45,9 +49,11 @@ export class RegisterFormComponent {
       })
     }
   }
+
   updateErrorMessage(controlName:string):void{
-    if(this.registerForm.get(controlName)?.hasError('email')){
-      this.registerForm.get(controlName)?.setErrors({'email':true})
+    if(this.registerForm.get(controlName)?.hasError('required')){
+      this.registerForm.get(controlName)?.markAsDirty();
+      this.registerForm.get(controlName)?.updateValueAndValidity();
     }
   }
   onDateChange(event:any){

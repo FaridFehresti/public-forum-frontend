@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthComponent } from './auth.component';
-import { LoginFormComponent } from './login-form/login-form.component';
-import { RegisterFormComponent } from './register-form/register-form.component';
-import { RessetPasswordFormComponent } from './resset-password-form/resset-password-form.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { RegisterFormComponent } from './components/register-form/register-form.component';
+import { RessetPasswordFormComponent } from './components/resset-password-form/resset-password-form.component';
 
 const routes: Routes = [
   { path: "", component: AuthComponent,

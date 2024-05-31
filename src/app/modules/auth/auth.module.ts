@@ -6,14 +6,17 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LoginFormComponent } from './login-form/login-form.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 import { AuthComponent } from './auth.component'; 
-import { RegisterFormComponent } from './register-form/register-form.component';
-import { RessetPasswordFormComponent } from './resset-password-form/resset-password-form.component';
+import { RegisterFormComponent } from './components/register-form/register-form.component';
+import { RessetPasswordFormComponent } from './components/resset-password-form/resset-password-form.component';
 import {MatGridListModule}from '@angular/material/grid-list'
 import {MatDatepickerModule}from '@angular/material/datepicker'
 import {provideNativeDateAdapter} from '@angular/material/core';
 import {MatIconModule} from '@angular/material/icon';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth-interceptor';
 
 
 const MAT = [
@@ -26,6 +29,7 @@ const MAT = [
   MatGridListModule,
   MatDatepickerModule,
   MatIconModule,
+  MatProgressBarModule,
 ];
 
 const PAGES = [
@@ -41,6 +45,11 @@ const PAGES = [
     AuthRoutingModule,
   ],
   providers:[
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
     provideNativeDateAdapter()
   ]
 })
