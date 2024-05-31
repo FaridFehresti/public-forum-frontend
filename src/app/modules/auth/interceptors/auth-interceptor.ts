@@ -10,7 +10,7 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private authService: AuthService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZhcmlkZmVocmVzdGkxMjM0QGdtYWlsLmNvbSIsInN1YiI6NCwiaWF0IjoxNzE3MTc1MDg2LCJleHAiOjE3MTcxNzg2ODZ9.ZG9DoCmARgNUtnlf9KKG3lTovoVvwBbyWMactF9-JFM"
+    const accessToken = this.authService.getToken();
 
     let cloned = req;
 

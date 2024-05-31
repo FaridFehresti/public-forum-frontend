@@ -23,7 +23,16 @@
       </mat-card-content>
       <mat-card-actions>
         <button mat-raised-button color="tertiary" type="submit">Submit</button>
-        <a mat-button type="link" [routerLink]="['/auth/reset-password']" >Forgot Password?</a>
+        <a mat-button type="link" [routerLink]="['/auth/reset-password']" >
+          <ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+          Forgot Password?</a>
         <a mat-button type="link" [routerLink]="['/auth/register']">Register</a>
       </mat-card-actions>
     </mat-card>

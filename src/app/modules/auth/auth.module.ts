@@ -14,6 +14,9 @@ import {MatGridListModule}from '@angular/material/grid-list'
 import {MatDatepickerModule}from '@angular/material/datepicker'
 import {provideNativeDateAdapter} from '@angular/material/core';
 import {MatIconModule} from '@angular/material/icon';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NgxSpinnerModule } from "ngx-spinner";
+
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth-interceptor';
@@ -30,12 +33,15 @@ const MAT = [
   MatDatepickerModule,
   MatIconModule,
   MatProgressBarModule,
+  MatProgressSpinnerModule,
+  NgxSpinnerModule
 ];
 
 const PAGES = [
   LoginFormComponent,
   AuthComponent ,
-  RegisterFormComponent,RessetPasswordFormComponent
+  RegisterFormComponent,
+  RessetPasswordFormComponent
 ];
 
 @NgModule({

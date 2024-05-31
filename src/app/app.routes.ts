@@ -1,24 +1,24 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
 
 export const routes: Routes = [
-  // Redirect empty path to 'auth'
-  { path: "", redirectTo: 'auth', pathMatch: 'full' },
+  // Redirect empty path to 'home'
+  { path: "", redirectTo: 'home', pathMatch: 'full' },
 
-  // Your component route
-  { path: "home", component: AppComponent },
+  // Your component route (corrected import)
+  {
+    path: "home",
+    loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
+  },
 
-  // Lazy-loaded module route
   {
     path: "auth",
     loadChildren: () => import("./modules/auth/auth.module").then(m => m.AuthModule),
   },
-  
-  // Wildcard route for a 404 page or similar
+
   {
     path: '**',
-    redirectTo: 'auth'
+    redirectTo: 'home'
   }
 ];
 

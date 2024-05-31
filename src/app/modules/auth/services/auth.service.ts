@@ -6,19 +6,24 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AuthService {
   private readonly TOKEN_NAME = 'access_token';
-  private tokenSubject = new BehaviorSubject<string | null>(null);
+  private tokenSubject = new BehaviorSubject<string | null>(this.getTokenFromStorage());
   public token$ = this.tokenSubject.asObservable();
+
+  private getTokenFromStorage(): string | null {
+    return localStorage.getItem(this.TOKEN_NAME);
+  }
+
   getToken(): string | null {
     return this.tokenSubject.getValue();
-}    
+  }
 
-setToken(token: string): void {
-  this.tokenSubject.next(token);
-  // Implement secure storage logic here (e.g., HttpOnly cookies)
-}
+  setToken(token: string): void {
+    localStorage.setItem(this.TOKEN_NAME, token);
+    this.tokenSubject.next(token);
+  }
 
-removeToken(): void {
-  this.tokenSubject.next(null);
-  // Implement logic to remove token from secure storage
-}
+  removeToken(): void {
+    localStorage.removeItem(this.TOKEN_NAME);
+    this.tokenSubject.next(null);
+  }
 }

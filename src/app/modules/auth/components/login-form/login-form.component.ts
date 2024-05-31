@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { AuthOperationService } from '../../services/auth-operation.service';
 import { AuthService } from '../../services/auth.service';
+import { AuthOperationService } from '../../services/auth-operation.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-login-form',
@@ -22,9 +23,16 @@ export class LoginFormComponent implements OnInit, OnDestroy {
  get token(){
   return localStorage.getItem(this.TOKEN_NAME)
  }
- constructor(private authOp: AuthOperationService, private fb: FormBuilder, private authService: AuthService) { } // Inject AuthService
+ constructor(private spinner: NgxSpinnerService,private authOp: AuthOperationService, private fb: FormBuilder, private authService: AuthService) { } // Inject AuthService
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.spinner.show();
+
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 5000);
+  }
 
   onSubmit(): void {
     if (this.loginForm.valid) {

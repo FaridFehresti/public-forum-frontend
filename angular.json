@@ -32,8 +32,10 @@
               }
             ],
             "styles": [
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css",
               "src/custom-theme.scss",
               "src/styles.scss"
+
             ],
             "scripts": []
           },
