@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import './app/shared/styles/theme.scss';
+
+body{
+    background-image: linear-gradient(to right top, #5a7975, #678376, #788c77, #8b9479, #a19b7e);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+
+//background-image: linear-gradient(to right top, #7ef124, #6dad16, #516f13, #2f3710, #010100);
+//background-image: linear-gradient(to right top, #429209, #3e6b07, #32460a, #202508, #010100);
+//background-image: linear-gradient(to right top, #5a7975, #678376, #788c77, #8b9479, #a19b7e);
+//background-image: linear-gradient(to right top, #356a14, #314e0f, #27350d, #1b1d07, #010100);
