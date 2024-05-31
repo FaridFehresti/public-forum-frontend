@@ -3,7 +3,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 import { AuthOperationService } from '../../services/auth-operation.service';
-import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-login-form',
@@ -13,6 +12,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class LoginFormComponent implements OnInit, OnDestroy {
   private readonly TOKEN_NAME = 'access_token'
   loginSub: Subscription | null = null;
+  userSub:Subscription | null = null
   hide: boolean = true;
 
   loginForm = this.fb.group({
@@ -23,15 +23,10 @@ export class LoginFormComponent implements OnInit, OnDestroy {
  get token(){
   return localStorage.getItem(this.TOKEN_NAME)
  }
- constructor(private spinner: NgxSpinnerService,private authOp: AuthOperationService, private fb: FormBuilder, private authService: AuthService) { } // Inject AuthService
-
+ constructor(private authOp: AuthOperationService, private fb: FormBuilder, private authService: AuthService) { } // Inject AuthService
+ 
   ngOnInit(): void {
-    this.spinner.show();
-
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 5000);
+   
   }
 
   onSubmit(): void {
@@ -68,5 +63,6 @@ export class LoginFormComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.loginSub?.unsubscribe();
+    this.userSub?.unsubscribe();
   }
 }

@@ -1,39 +1,38 @@
-<div class="login-form-container  w-300">
+<div class="login-form-container w-300">
   <form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
-    <mat-card  class="login-card " >
-      <mat-card-header  >
-        <mat-card-title >Login Form</mat-card-title>
+    <mat-card class="login-card">
+      <mat-card-header>
+        <mat-card-title>Login Form</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        
         <div class="row">
           <div class="col">
             <mat-form-field class="full-width">
-              <input matInput placeholder="email" formControlName="email">
+              <input matInput placeholder="email" formControlName="email" />
             </mat-form-field>
           </div>
         </div>
         <div class="row">
           <div class="col">
             <mat-form-field class="full-width">
-              <input matInput placeholder="password" formControlName="password" type="password">
+              <input
+                matInput
+                placeholder="password"
+                formControlName="password"
+                type="password"
+              />
             </mat-form-field>
           </div>
         </div>
       </mat-card-content>
       <mat-card-actions>
         <button mat-raised-button color="tertiary" type="submit">Submit</button>
-        <a mat-button type="link" [routerLink]="['/auth/reset-password']" >
-          <ngx-spinner
-  bdColor="rgba(51,51,51,0.8)"
-  size="medium"
-  color="#fff"
-  type="ball-scale-multiple"
->
-  <p style="font-size: 20px; color: white">Loading...</p>
-</ngx-spinner>
-          Forgot Password?</a>
+        <a mat-button type="link" [routerLink]="['/auth/reset-password']">
+          Forgot Password?</a
+        >
         <a mat-button type="link" [routerLink]="['/auth/register']">Register</a>
+
+
       </mat-card-actions>
     </mat-card>
   </form>

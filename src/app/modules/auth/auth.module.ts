@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { AuthRoutingModule } from './auth.routes';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -15,7 +15,6 @@ import {MatDatepickerModule}from '@angular/material/datepicker'
 import {provideNativeDateAdapter} from '@angular/material/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { NgxSpinnerModule } from "ngx-spinner";
 
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -34,7 +33,6 @@ const MAT = [
   MatIconModule,
   MatProgressBarModule,
   MatProgressSpinnerModule,
-  NgxSpinnerModule
 ];
 
 const PAGES = [
@@ -57,6 +55,11 @@ const PAGES = [
       multi: true
     },
     provideNativeDateAdapter()
-  ]
+  ],
+
 })
 export class AuthModule { }
+
+
+  
+
