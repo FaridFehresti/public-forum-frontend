@@ -19,6 +19,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth-interceptor';
+import { AnimationTesterComponent } from 'src/app/shared/components/animation-tester/animation.component';
 
 
 const MAT = [
@@ -46,6 +47,7 @@ const PAGES = [
   declarations: [...PAGES],
   imports: [
     ...MAT,
+    AnimationTesterComponent,
     AuthRoutingModule,
   ],
   providers:[
