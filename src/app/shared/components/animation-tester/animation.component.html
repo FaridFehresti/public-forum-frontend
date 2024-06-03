@@ -265,16 +265,3 @@
         </div>
     </div>
 </div>
-<ng-template>
-    <div mat-dialog-content style="padding: 50px; display: flex; flex-direction: column;">
-        <span style="font-weight: bold">TypeScript:</span>
-        <span style="color: var(--green)">{{ '@Component({' }}</span>
-        <span style="color: var(--green)">animations: [<span style="color: var(--red)">AnimationName()</span>]</span>
-        <span style="color: var(--green)">{{ '})' }}</span>
-        <span style="font-weight: bold">Template:</span>
-        <span style="color: var(--green)">{{ generatedCode }}</span>
-    </div>
-    <div mat-dialog-actions>
-        <button mat-button (click)="closeCodeModal()">Ok</button>
-    </div>
-</ng-template>

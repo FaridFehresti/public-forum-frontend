@@ -1,13 +1,14 @@
 <div class="login-form-container w-300">
   <form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
     <mat-card class="login-card">
-      <mat-card-header>
+      <mat-card-header class="!py-3">
         <mat-card-title>Login Form</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <div class="row">
           <div class="col">
             <mat-form-field class="full-width">
+              <mat-label>email</mat-label>
               <input matInput placeholder="email" formControlName="email" />
             </mat-form-field>
           </div>
@@ -37,14 +38,17 @@
           </div>
         </div>
       </mat-card-content>
-      <mat-card-actions>
-        <button mat-raised-button color="tertiary" type="submit">Submit</button>
+      <mat-card-actions class="gap-2 !justify-between">
         <a mat-button type="link" [routerLink]="['/auth/reset-password']">
           Forgot Password?</a
         >
-        <a mat-button type="link" [routerLink]="['/auth/register']">Register</a>
+        <div class="flex gap-2">
+          <a mat-raised-button type="link" [routerLink]="['/auth/register']"
+            >Register</a
+          >
 
-
+          <button mat-flat-button color="tertiary" type="submit">Submit</button>
+        </div>
       </mat-card-actions>
     </mat-card>
   </form>
