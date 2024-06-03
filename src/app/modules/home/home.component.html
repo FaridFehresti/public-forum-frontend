@@ -1,6 +1,7 @@
 <h1 class="text-dutchWhite px-5 py-5">
      name : {{data?.first_name}} {{' '}} {{data?.last_name}}
-     <!-- <button mat-flat-button (click)="onLogOut()">Logout</button> -->
      <app-confirm-popup [title]="'Logout'" [description]="'Are you sure you want to logout?'" (onConfirm)="onLogOut()"></app-confirm-popup>
+
 </h1>
-   
+
+<app-main-layout></app-main-layout>
