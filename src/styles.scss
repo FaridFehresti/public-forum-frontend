@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import './app/shared/styles/theme.scss';
+@import './app//shared/styles/font-icons.scss';
 
 body{
     background-image: linear-gradient(to right top, #010100, #0c0e00, #121800, #141f02, #122806);    background-attachment: fixed;
