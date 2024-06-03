@@ -127,11 +127,13 @@ $_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
 $light-theme: mat.define-theme((
   color: (
     theme-type: light,
-    primary: mat.$green-palette,
-    tertiary: mat.$green-palette,
+    primary: $_primary,
+    tertiary: $_tertiary,
   ),
 ));
 html {
   @include mat.all-component-themes($light-theme);
+  // @include mat.radio-theme($dark-theme);
 
+  // @include mat.button-theme($dark-theme);
 }

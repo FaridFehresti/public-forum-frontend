@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 import { AuthOperationService } from '../../services/auth-operation.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -23,7 +24,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
  get token(){
   return localStorage.getItem(this.TOKEN_NAME)
  }
- constructor(private authOp: AuthOperationService, private fb: FormBuilder, private authService: AuthService) { } // Inject AuthService
+ constructor(private router: Router,private authOp: AuthOperationService, private fb: FormBuilder, private authService: AuthService) { } // Inject AuthService
  
   ngOnInit(): void {
    
@@ -41,6 +42,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
           console.log(res);
           if (res?.access_token) {
             this.authService.setToken(res.access_token); // Use AuthService to set the token
+            this.router.navigate(['/']);
           }
         },
         error: err => {
