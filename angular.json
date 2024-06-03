@@ -33,7 +33,6 @@
             ],
             "styles": [
               "./node_modules/ngx-spinner/animations/ball-scale-multiple.css",
-              "src/custom-theme.scss",
               "src/styles.scss"
 
             ],
@@ -95,6 +94,7 @@
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/cyan-orange.css",
               "src/styles.scss"
             ],
             "scripts": []

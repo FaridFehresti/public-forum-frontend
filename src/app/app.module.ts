@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {  HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './modules/auth/interceptors/auth-interceptor';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 const COMPONENTS = [
@@ -28,6 +29,7 @@ const COMPONENTS = [
       useClass: AuthInterceptor,
       multi: true,
     },
+    provideAnimationsAsync(),
   ],
 
   bootstrap: [AppComponent] ,
