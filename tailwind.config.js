@@ -16,6 +16,7 @@ module.exports = {
         sgbusGreen: '#6CD122',
         darkMossGreen: '#356A14',
         darkGreen:'#122806',
+        text:'#e0e3e2'
       },
     },
   },
