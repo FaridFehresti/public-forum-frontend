@@ -5,17 +5,22 @@ import { MatButtonModule } from '@angular/material/button';
 import { ConfirmPopUpAnimation, ConfirmPopUpComponent } from 'src/app/shared/components/confirm-popup/confirm-popup.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import {MatTabsModule} from '@angular/material/tabs';
-import { StatComponent } from './main-layout/components/stat/stat.component';
-import { DataComponent } from './main-layout/components/data/data.component';
-import { InventoryComponent } from './main-layout/components/inventory/inventory.component';
-import { MapComponent } from './main-layout/components/map/map.component';
-import { SocialComponent } from './main-layout/components/social/social.component';
-
+import { StatComponent } from './main-layout/components/tabs/stat/stat.component';
+import { DataComponent } from './main-layout/components/tabs/data/data.component';
+import { InventoryComponent } from './main-layout/components/tabs/inventory/inventory.component';
+import { MapComponent } from './main-layout/components/tabs/map/map.component';
+import { SocialComponent } from './main-layout/components/tabs/social/social.component';
+import {MatBadgeModule} from '@angular/material/badge';
+import { SettingComponent } from './main-layout/components/settings/setting/setting.component';
+import { ProfileComponent } from './main-layout/components/settings/profile/profile.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 const MAT = [
   MatButtonModule,
   MatTabsModule,
+  MatBadgeModule,
+  MatMenuModule,
 ];
 
 const PAGES = [
@@ -28,7 +33,11 @@ const COMPONENTS = [
     DataComponent,
     InventoryComponent,
     MapComponent,
-    SocialComponent
+    SocialComponent,
+    SettingComponent,
+    ProfileComponent,
+    
+    
     
 ]
 

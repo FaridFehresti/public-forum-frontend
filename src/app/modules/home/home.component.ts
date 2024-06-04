@@ -32,10 +32,6 @@ export class HomeComponent implements OnInit{
     this.onClick()
   }
 
-  onLogOut(): void {
-    this.authOp.logOut()
-    this.router.navigate(['/auth/login']);
-    
-  }
+  
   
 }
