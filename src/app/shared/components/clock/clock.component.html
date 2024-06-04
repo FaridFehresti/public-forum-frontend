@@ -1,7 +1,30 @@
-<mat-card class="w-56">
-    <mat-card-content class="!p-4">
-        <p class="text-text">{{currentDate | date :type }}</p>
+<mat-card class="w-60">
+    <mat-card-content >
+        <div class="flex flex-row justify-between items-center">
+            <p class="text-text !m-0">{{currentDate | date :type  }}  </p>
+            <div class="clock-tools flex justify-between py-2">
+                <button  matBadge="1" mat-icon-button class="icon-wb_sunny text-text !text-sm">
+             
+                </button>   
+                <button  matBadge="1" mat-icon-button class="icon-settings text-text  !text-sm">
+                 
+                </button>   
+            </div>
+            
+            
+        </div>
+        
+        
+        @if(showTimeZone){
+            <p class="text-text">GMT {{timeOffset + ' '+timeZone }} </p>
+        }
     </mat-card-content>
 
+        <mat-card-footer>
+            <div class="w-full h-5 px-4 pt-2 mb-2">
+                <mat-progress-bar mode="determinate" class="rounded-md" [value]="progressBarValue"></mat-progress-bar>
+            </div>
+
+        </mat-card-footer>
 
 </mat-card>
