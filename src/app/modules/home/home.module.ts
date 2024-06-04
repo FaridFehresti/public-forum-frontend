@@ -14,6 +14,8 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { SettingComponent } from './main-layout/components/settings/setting/setting.component';
 import { ProfileComponent } from './main-layout/components/settings/profile/profile.component';
 import {MatMenuModule} from '@angular/material/menu';
+import { MatCardModule } from '@angular/material/card';
+import { ClockComponent } from 'src/app/shared/components/clock/clock.component';
 
 
 const MAT = [
@@ -21,13 +23,14 @@ const MAT = [
   MatTabsModule,
   MatBadgeModule,
   MatMenuModule,
+  MatCardModule
 ];
 
 const PAGES = [
     
 ];
 const COMPONENTS = [
-    HomeComponent,
+    HomeComponent, 
     MainLayoutComponent,
     StatComponent,
     DataComponent,
@@ -36,9 +39,6 @@ const COMPONENTS = [
     SocialComponent,
     SettingComponent,
     ProfileComponent,
-    
-    
-    
 ]
 
 @NgModule({
@@ -47,6 +47,7 @@ const COMPONENTS = [
     HomeRoutingModule,
     ConfirmPopUpAnimation,
     ConfirmPopUpComponent,
+    ClockComponent,
     
     ...MAT,
   ],

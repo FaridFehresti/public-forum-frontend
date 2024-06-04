@@ -60,6 +60,7 @@ export class RegisterFormComponent {
     this.registerForm.controls['birthdate'].patchValue(event.value)
   }
   onShowPasswordClick(event: MouseEvent) {
+    
     this.hide = !this.hide;
   }
   ngOnDestroy(): void {

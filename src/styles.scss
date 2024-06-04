@@ -6,7 +6,7 @@
 
 
 body{
-    background-image: linear-gradient(to right top, #5a7975, #678376, #788c77, #8b9479, #a19b7e);    background-attachment: fixed;
+    background-image: linear-gradient(to right top, #00dddd, #27a8a8, #2c7576, #264647, #191c1c);    background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
@@ -25,3 +25,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+::-webkit-scrollbar{
+    width: 12px;
+  }
+  ::-webkit-scrollbar-track{
+    background: #e0e3e2;
+  }
+  ::-webkit-scrollbar-thumb{
+    background: #003737;
+    transition: transform(background) 0.5s ease ;
+    border-radius: 5px;
+    border: 2px solid #003737;
+  }

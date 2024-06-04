@@ -1,10 +1,10 @@
 <div class="login-form-container w-300">
   <form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
     <mat-card class="login-card">
-      <mat-card-header class="!py-3">
-        <mat-card-title>Login Form</mat-card-title>
+      <mat-card-header >
+        <mat-card-title class="!p-4">Login Form</mat-card-title>
       </mat-card-header>
-      <mat-card-content>
+      <mat-card-content class="!pl-8 !pr-8">
         <div class="row">
           <div class="col">
             <mat-form-field class="full-width">
@@ -24,6 +24,7 @@
               />
               <button
                 mat-icon-button
+                type="button"
                 matSuffix
                 (click)="onShowPasswordClick($event)"
                 [attr.aria-label]="'Hide password'"
@@ -38,7 +39,7 @@
           </div>
         </div>
       </mat-card-content>
-      <mat-card-actions class="gap-2 !justify-between">
+      <mat-card-actions class="gap-2 !justify-between !pl-3 !pr-3">
         <a mat-button type="link" [routerLink]="['/auth/reset-password']">
           Forgot Password?</a
         >
@@ -69,3 +70,4 @@
     <div class="bg-darkMossGreen h-32 p-4 text-white">Dark Moss Green</div>
   </div>
 </div>
+
