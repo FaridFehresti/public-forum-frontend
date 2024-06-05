@@ -7,10 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {  HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './modules/auth/interceptors/auth-interceptor';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatButtonModule } from '@angular/material/button';
+import { SettingComponent } from './shared/components/setting/setting.component';
+import { ProfileComponent } from './shared/components/profile/profile.component';
+import { CircularMenuComponent } from './shared/components/circular-menu/circular-menu.component';
 
 
 const COMPONENTS = [
-  AppComponent
+  AppComponent,
+  
 ]
 
 @NgModule({
@@ -21,7 +26,10 @@ const COMPONENTS = [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-
+    SettingComponent,
+    ProfileComponent,
+    CircularMenuComponent,
+    MatButtonModule,
   ],
   providers: [
     {

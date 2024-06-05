@@ -1,1 +1,36 @@
-<router-outlet></router-outlet>
+
+
+@if(isAuth){
+    <router-outlet></router-outlet>
+
+}
+@else{
+    @if(isVisible){
+        <div class="menu-container w-screen h-screen relative ">
+            <app-circular-menu [isVisible]="isVisible" (onCloseMenu)="closeCircularMenu()" ></app-circular-menu>
+
+        </div>
+    }@else {
+        <div class="relative main-layout-container px-12 py-8 flex flex-row  h-fit">
+            <div class="main-header-layout flex flex-row gap-2 h-fit ">
+                <app-setting></app-setting>
+                <app-profile></app-profile>
+                @if(!isHome){
+                    <button mat-icon-button (click)="openCircularMenu()" class="icon-menu">
+                    </button>
+                    
+                    
+                }
+    
+            </div>
+    
+        </div>
+        <div class="main-layout px-14 py-4 overflow-auto">
+            <router-outlet></router-outlet>
+    
+        </div>
+    }
+    
+
+
+}

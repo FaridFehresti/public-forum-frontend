@@ -15,6 +15,29 @@ export const routes: Routes = [
     path: "auth",
     loadChildren: () => import("./modules/auth/auth.module").then(m => m.AuthModule),
   },
+  {
+    path: "data",
+    loadChildren: () => import("./modules/data/data.module").then(m => m.DataModule),
+  },
+  {
+    path: "inventory",
+    loadChildren: () => import("./modules/inventory/inventory.module").then(m => m.InventoryModule),
+  },
+  {
+    path: "stat",
+    loadChildren: () => import("./modules/stat/stat.module").then(m => m.StatModule),
+  },
+  {
+    path: "social",
+    loadChildren: () => import("./modules/social/social.module").then(m => m.SocialModule),
+  },
+  {
+    path: "map",
+    loadChildren: () => import("./modules/map/map.module").then(m => m.MapModule),
+  },
+
+
+
 
   {
     path: '**',

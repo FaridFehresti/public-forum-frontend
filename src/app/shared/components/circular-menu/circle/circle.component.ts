@@ -1,15 +1,16 @@
-import { Component, EventEmitter, Output} from '@angular/core';
+import { Component, EventEmitter, Input, Output} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatTooltip } from '@angular/material/tooltip';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-circle',
   standalone: true,
-  imports: [MatTooltip,MatButtonModule],
+  imports: [MatButtonModule, RouterLink],
   templateUrl: './circle.component.html',
   styleUrl: './circle.component.scss'
 })
 export class CircleComponent {
+  @Input() isHome: boolean = false
   @Output() onCloseMenu = new EventEmitter<boolean>()
   circleElement: HTMLElement | null = null;
   maxRadius = 50; // Maximum allowed radius for movement
