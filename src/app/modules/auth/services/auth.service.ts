@@ -49,7 +49,6 @@ export class AuthService {
 
   validateToken(): boolean {
     const token = this.getToken();
-    console.log('got token:', token);
     if (!token) {
       return false;
     }

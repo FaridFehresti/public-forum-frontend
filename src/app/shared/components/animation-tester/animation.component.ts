@@ -206,7 +206,6 @@ export class AnimationTesterComponent {
         this.dialog.closeAll();
     }
     selectAnimation(value:MatSelectChange) {
-        console.log(value)
         this.selectedAnimation = value.value
     }
     animate() {

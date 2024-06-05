@@ -18,17 +18,14 @@ export class HomeComponent implements OnInit{
   onClick(){
     this.userSub = this.authOp.getUsers().subscribe({
       next: res => {
-        console.log(res);
         this.data = res
       },
       error: err => {
-        console.log(err);
       },
     })
   }
  
   ngOnInit(): void {
-    console.log("im here")
     this.onClick()
   }
 

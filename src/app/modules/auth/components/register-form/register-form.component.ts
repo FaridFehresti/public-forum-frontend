@@ -45,7 +45,6 @@ export class RegisterFormComponent {
         gender:this.registerForm.value.gender!
       }
       this.registerSub = this.authOp.RegisterUser(data).subscribe(res => {
-        console.log(res)
       })
     }
   }

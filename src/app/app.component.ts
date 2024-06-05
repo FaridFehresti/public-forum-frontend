@@ -28,7 +28,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   determineCurrentRoute(url: string): void {
     this.currentRoute = url;
-    console.log(this.currentRoute);
     if(this.currentRoute === '/home'){
       this.isHome = true;
     }else{
@@ -39,7 +38,6 @@ export class AppComponent implements OnInit, OnDestroy {
     }else{
       this.isAuth = false;
     }
-    console.log(this.currentRoute, this.isHome, this.isAuth);
    
   }
   openCircularMenu(){

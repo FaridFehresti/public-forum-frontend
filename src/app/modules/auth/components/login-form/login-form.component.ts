@@ -39,14 +39,12 @@ export class LoginFormComponent implements OnInit, OnDestroy {
 
       this.loginSub = this.authOp.loginUser(data).subscribe({
         next: res => {
-          console.log(res);
           if (res?.access_token) {
             this.authService.setToken(res.access_token); // Use AuthService to set the token
             this.router.navigate(['/']);
           }
         },
         error: err => {
-          console.log(err);
         },
       });
     }

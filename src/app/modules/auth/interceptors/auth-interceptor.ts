@@ -12,22 +12,18 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const accessToken = this.authService.getToken();
     let cloned = req;
-    console.log('access token exists:',accessToken)
     if (accessToken) {
       cloned = req.clone({
         headers: req.headers.set('Authorization', `Bearer ${accessToken}`),
       });
     }
 
-    console.log('HTTP Request initiated:', cloned);
 
     return next.handle(cloned).pipe(
       tap(
         event => {
-          console.log('HTTP Response received:', event);
         },
         error => {
-          console.log('HTTP Request error:', error);
         }
       )
     );
