@@ -16,8 +16,7 @@ import { ProfileComponent } from './main-layout/components/settings/profile/prof
 import {MatMenuModule} from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { ClockComponent } from 'src/app/shared/components/clock/clock.component';
-import { CircularMenuComponent } from './main-layout/components/circular-menu/circular-menu.component';
-import {TooltipPosition, MatTooltipModule} from '@angular/material/tooltip';
+import { CircularMenuComponent } from 'src/app/shared/components/circular-menu/circular-menu.component';
 
 
 const MAT = [
@@ -26,7 +25,6 @@ const MAT = [
   MatBadgeModule,
   MatMenuModule,
   MatCardModule,
-  MatTooltipModule,
 ];
 
 const PAGES = [
@@ -42,7 +40,6 @@ const COMPONENTS = [
     SocialComponent,
     SettingComponent,
     ProfileComponent,
-    CircularMenuComponent,
 ]
 
 @NgModule({
@@ -52,7 +49,7 @@ const COMPONENTS = [
     ConfirmPopUpAnimation,
     ConfirmPopUpComponent,
     ClockComponent,
-    
+    CircularMenuComponent,
     ...MAT,
   ],
   providers:[

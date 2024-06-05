@@ -7,7 +7,6 @@
         <button matTooltip="Info about the action" [matTooltipPosition]="'right'" class="circle-menu-button stat icon-stats-bars" mat-icon-button ></button>
         <button matTooltip="Info about the action" [matTooltipPosition]="'right'" class="circle-menu-button inventory icon-storage" mat-icon-button ></button>
         <button matTooltip="Info about the action" [matTooltipPosition]="'right'" class="circle-menu-button data icon-database" mat-icon-button ></button>
-        icon-map
         <button matTooltip="Info about the action" [matTooltipPosition]="'right'" class="circle-menu-button map icon-map" mat-icon-button ></button>
         <img class="circular-menu-icon" src="/icons/icon_27.png" alt="">
 
@@ -18,6 +17,8 @@
     <div class="circle-light">
 
     </div>
+    <button (click)="closeCircleMenu()" class="circle-menu-button close icon-cross" mat-icon-button ></button>
+
 
     
 </div>

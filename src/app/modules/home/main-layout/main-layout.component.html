@@ -1,7 +1,11 @@
 <div
   class="relative main-layout-container px-12 py-8 flex flex-row w-screen h-screen !overflow-y-auto"
 >
-  <app-profile></app-profile>
+
+  <!-- <app-profile></app-profile> -->
+  <button mat-icon-button class="!absolute right-10 !z-10"  (click)="openCircleMenu()">
+    <img class="circle-menu-icon" src="\icons\vault-boy-head.png" alt="">    
+</button>
   <mat-tab-group
     (selectedIndexChange)="onTabChange($event)"
     mat-stretch-tabs="false"
@@ -11,6 +15,7 @@
     <mat-tab label="STAT">
       @if(selectedTab == 0){
       <app-stat></app-stat>
+
       }
     </mat-tab>
     <mat-tab label="INV">
@@ -36,6 +41,9 @@
       }
     </mat-tab>
   </mat-tab-group>
+  
+  
+  <app-circular-menu (onCloseMenu)="closeCircleMenu()" [isVisible]="isCircleMenuVisible"></app-circular-menu>
+
   <app-setting></app-setting>
-  <app-circular-menu></app-circular-menu>
 </div>

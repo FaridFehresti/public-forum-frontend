@@ -1,11 +1,16 @@
-import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
+import { Component, EventEmitter, Output} from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
-  selector: 'app-circular-menu',
-  templateUrl: './circular-menu.component.html',
-  styleUrls: ['./circular-menu.component.scss']
+  selector: 'app-circle',
+  standalone: true,
+  imports: [MatTooltip,MatButtonModule],
+  templateUrl: './circle.component.html',
+  styleUrl: './circle.component.scss'
 })
-export class CircularMenuComponent implements OnInit, OnDestroy {
+export class CircleComponent {
+  @Output() onCloseMenu = new EventEmitter<boolean>()
   circleElement: HTMLElement | null = null;
   maxRadius = 50; // Maximum allowed radius for movement
 
@@ -18,6 +23,9 @@ export class CircularMenuComponent implements OnInit, OnDestroy {
     document.removeEventListener('mousemove', this.onMouseMove.bind(this));
   }
 
+  closeCircleMenu() {
+    this.onCloseMenu.emit(false)
+  }
   onMouseMove(event: MouseEvent) {
     if (this.circleElement) {
       const centerX = window.innerWidth / 2;

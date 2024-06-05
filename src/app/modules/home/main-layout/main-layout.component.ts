@@ -7,7 +7,14 @@ import { Component } from '@angular/core';
 })
 export class MainLayoutComponent {
   selectedTab: number = 0
+  isCircleMenuVisible: boolean = false;
   onTabChange(tabIndex: any) {
     this.selectedTab = tabIndex
+  }
+  openCircleMenu(){
+    this.isCircleMenuVisible = !this.isCircleMenuVisible
+  }
+  closeCircleMenu(){
+    this.isCircleMenuVisible = false
   }
 }
