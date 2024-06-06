@@ -25,6 +25,7 @@ export class ClockComponent implements OnInit,OnDestroy{
   currentHour:number | null = null;
   timeOffset:string | null = null;
   timeZone:string | null = null;
+  currentMinute:number | null = null;
   progressBarValue = 0
   constructor( private timeService:TimeServiceService){
 
@@ -36,6 +37,7 @@ export class ClockComponent implements OnInit,OnDestroy{
     this.timeSub = this.timeService.getRealTimeData().subscribe((time)=>{
       this.currentDate = time
       this.currentHour = time.getHours()
+      this.currentMinute = time.getMinutes()
       let match = this.currentDate?.toString().match(this.regex)
       if (match) {
         let offsetSign = match[1]; // "+" or "-" for offset
@@ -44,12 +46,12 @@ export class ClockComponent implements OnInit,OnDestroy{
         this.timeZone = match[4]; 
         this.timeOffset = `${offsetSign}${offsetHours}:${offsetMinutes}`;
       }
-      let ratio = 100/24
-      this.progressBarValue = Math.ceil(this.currentHour * ratio)
+      let ratio = 100/1440
+      this.progressBarValue = Math.ceil((this.currentHour * 60 + this.currentMinute) * ratio);
 
     })
   }
   ngOnDestroy(): void {
-    
+    this.timeSub?.unsubscribe();
   }
 }
