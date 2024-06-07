@@ -1,72 +1,34 @@
 <div class="stat-container flex flex-row">
-  <div class="model-container flex flex-col justify-center items-center">
+  <div class="model-container flex flex-row justify-center items-center">
+    <div class="stat-navigation-side-bar-container flex flex-col py-1 gap-9">
+      <button mat-icon-button [routerLink]="'/stat'" [queryParams]="{type:'overview'}"  class="icon-view_comfy" [class.selected]="routingParam === 'overview'"></button>
+      <button mat-icon-button [routerLink]="'/stat'" [queryParams]="{type:'stats'}" class="icon-stats-bars"[class.selected]="routingParam === 'stats'"></button>
+      <button mat-icon-button [routerLink]="'/stat'" [queryParams]="{type:'condition'}" class="icon-accessibility1" [class.selected]="routingParam === 'condition'"></button>
+      <button mat-icon-button [routerLink]="'/stat'" [queryParams]="{type:'calendar'}" class="icon-calendar" [class.selected]="routingParam === 'calendar'"></button>
+      <button mat-icon-button [routerLink]="'/stat'" [queryParams]="{type:'stack'}" class="icon-stack" [class.selected]="routingParam === 'stack'"></button>
+    </div>
     <app-three-d-model></app-three-d-model>
   </div>
   <div class="content-container w-full flex flex-col gap-4">
-    <div class="contet-main-container flex gap-4 w-full h-full">
-      <div class="w-2/3 h-full">
-        <mat-grid-list [gutterSize]="'16px'"  rowHeight="12:8" cols="2">
-            <mat-grid-tile>
-                <mat-card class="w-full h-full" >
-                    <mat-card-header>
-                        <mat-card-title >Title</mat-card-title>
-                        <mat-card-subtitle>Subtitle</mat-card-subtitle>
-                    </mat-card-header>
-                    <mat-card-content> Text content </mat-card-content>
-                </mat-card>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <mat-card class="w-full h-full" >
-                    <mat-card-header>
-                        <mat-card-title>Title</mat-card-title>
-                        <mat-card-subtitle>Subtitle</mat-card-subtitle>
-                    </mat-card-header>
-                    <mat-card-content> Text content </mat-card-content>
-                </mat-card>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <mat-card class="w-full h-full" >
-                    <mat-card-header>
-                        <mat-card-title>Title</mat-card-title>
-                        <mat-card-subtitle>Subtitle</mat-card-subtitle>
-                    </mat-card-header>
-                    <mat-card-content> Text content </mat-card-content>
-                </mat-card>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <mat-card class="w-full h-full" >
-                    <mat-card-header>
-                        <mat-card-title>Title</mat-card-title>
-                        <mat-card-subtitle>Subtitle</mat-card-subtitle>
-                    </mat-card-header>
-                    <mat-card-content> Text content </mat-card-content>
-                </mat-card>
-            </mat-grid-tile>
-          </mat-grid-list>
-      </div>
+    @switch (routingParam) {
+      @case('overview'){
+        <app-stat-overview></app-stat-overview>
+      }
+      @case('stats'){
+        <app-stat-stats></app-stat-stats>
+      }
+      @case('condition'){
+        <app-stat-condition></app-stat-condition>
 
-      <div class="side-bar-container w-1/3 ">
-        <mat-card class="h-full">
-          <mat-card-header>
-            <mat-card-title>Title</mat-card-title>
-            <mat-card-subtitle>Subtitle</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            
-            <app-clock></app-clock>
-
-          </mat-card-content>
-        </mat-card>
-      </div>
-    </div>
-    <div class="stat-footer-container w-full h-2/5">
-        <mat-card class="w-full h-full" >
-            <mat-card-header>
-                <mat-card-title>Title</mat-card-title>
-                <mat-card-subtitle>Subtitle</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content> Text content </mat-card-content>
-        </mat-card>
-    </div>
-  </div>
+      }
+      @case('calendar'){
+        <app-stat-calendar></app-stat-calendar>
+      }
+      @case('stack'){
+        <app-stat-stack></app-stat-stack>
+      }
+    }
+</div>
+  
+  
 </div>

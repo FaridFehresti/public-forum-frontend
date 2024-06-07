@@ -7,10 +7,20 @@ import { ThreeDModelComponent} from './components/three-d-model/three-d-model.co
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { StatOverviewComponent } from './components/stat-overview/stat-overview.component';
+import { StatStatsComponent } from './components/stat-stats/stat-stats.component';
+import { StatConditionComponent } from './components/stat-condition/stat-condition.component';
+import { StatCalendarComponent } from './components/stat-calendar/stat-calendar.component';
+import { StatStackComponent } from './components/stat-stack/stat-stack.component';
 
 const COMPONENTS = [
     ThreeDModelComponent,
-    StatComponent
+    StatComponent,
+    StatOverviewComponent,
+    StatStatsComponent,
+    StatConditionComponent,
+    StatCalendarComponent,
+    StatStackComponent
 ]
 const MAT = [
     MatCardModule,
