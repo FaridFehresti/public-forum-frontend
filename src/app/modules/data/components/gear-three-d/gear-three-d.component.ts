@@ -2,13 +2,12 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-
 @Component({
-  selector: 'app-three-d-model',
-  templateUrl: './three-d-model.component.html',
-  styleUrls: ['./three-d-model.component.scss']
+  selector: 'app-gear-three-d',
+  templateUrl: './gear-three-d.component.html',
+  styleUrl: './gear-three-d.component.scss'
 })
-export class ThreeDModelComponent implements OnInit {
+export class GearThreeDComponent {
   private camera!: THREE.PerspectiveCamera;
   private renderer!: THREE.WebGLRenderer;
   private scene!: THREE.Scene;
@@ -42,15 +41,15 @@ export class ThreeDModelComponent implements OnInit {
     this.renderer.setClearColor(0x000000, 0);
     this.renderer.domElement.className = 'model';
     this.renderer.domElement.style.position = 'absolute';
-    this.renderer.domElement.style.top = '-21%';
-    this.renderer.domElement.style.left = '-87%';
+    this.renderer.domElement.style.top = '-46%';
+    this.renderer.domElement.style.right = '-145%';
 
     // Set the background to transparent
 
     container.appendChild(this.renderer.domElement);
 
     const loader = new GLTFLoader();
-    loader.load('/models/mask.glb', (gltf) => {
+    loader.load('/models/gear.glb', (gltf) => {
       this.model = gltf.scene;
       
       // Position the model properly
@@ -70,9 +69,9 @@ export class ThreeDModelComponent implements OnInit {
       const fov = this.camera.fov * (Math.PI / 180);
       let cameraZ = Math.abs(maxDim / 2 * Math.tan(fov * 2));
       cameraZ *= 1.5; // Add some distance to ensure the model fits well
-      this.camera.position.z = 600.8 ; // Increase the z position to move the camera further back
-      this.camera.position.y = 191.7 ; // Move the camera up
-      this.camera.position.x = -1.76 ; // Move the camera right
+      this.camera.position.z = -0.95 ; // Increase the z position to move the camera further back
+      this.camera.position.y = -0.005; // Move the camera up
+      this.camera.position.x = 2.2; // Move the camera right
       // Update the controls' target to ensure rotation around the model's center
       this.controls.target.copy(box.getCenter(new THREE.Vector3()));
       this.controls.update();
